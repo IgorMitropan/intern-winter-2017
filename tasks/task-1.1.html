@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Task 1.1</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 1.1</title>
+    </head>
+    <body>
 
-<h2>Task 1.1</h2>
-<h3>Условие:</h3>
-<pre>В следующем фрагменте программы выполните оптимизацию:
+        <h2>Task 1.1</h2>
+        <h3>Условие:</h3>
+        <pre>В следующем фрагменте программы выполните оптимизацию:
 
-for i := 1 to bound do
-begin
-    for j := 1 to dim do
-    begin
-    s := 0.0;
-
-        for k := 0 to i - 1 do
+        for i := 1 to bound do
         begin
-         s := s + dt * weight[i, k] * slope[k, j];
-         z[i, j] := x0[j] + 2.314 * y;
-        end;
-    end;
+            for j := 1 to dim do
+            begin
+            s := 0.0;
 
-    F(t0 + abscissa[i] * dt, z[i], slope[i]);
-end;</pre>
+                for k := 0 to i - 1 do
+                begin
+                s := s + dt * weight[i, k] * slope[k, j];
+                z[i, j] := x0[j] + 2.314 * y;
+                end;
+            end;
 
-<h3>Решение:</h3>
-<pre>Код преобразован в JavaScript:
-s = 0;                              // s приравнивается 0 на каждом шаге цикла for по j, но в теле цикла нигде не используется, вынес из цикла.
+            F(t0 + abscissa[i] * dt, z[i], slope[i]);
+        end;</pre>
 
-for (let i = 1; i < bound; i++) {
-    for (let j = 1; j < dim; j++) {
-        z[i][j] = x0[j] + 2.314 * y; // Эту строку вынес из цикла for по k, т.к. на каждом шаге этого цикла значение перезаписывается на точно такое же
-    } 
-                                    // поскольку цикл for по k изменял значение переменной s то его вообще можно удалить (Читай комментарий к строке 1)
-    F(t0 + abscissa[i] * dt, z[i], slope[i]);      
-}</pre>
+        <h3>Решение:</h3>
+        <pre>Код преобразован в JavaScript:
+        s = 0;                              // s приравнивается 0 на каждом шаге цикла for по j, но в теле цикла нигде не используется, вынес из цикла.
 
-</body>
+        for (let i = 1; i < bound; i++) {
+            for (let j = 1; j < dim; j++) {
+                z[i][j] = x0[j] + 2.314 * y; // Эту строку вынес из цикла for по k, т.к. на каждом шаге этого цикла значение перезаписывается на точно такое же
+            } 
+                                            // поскольку цикл for по k изменял значение переменной s то его вообще можно удалить (Читай комментарий к строке 1)
+            F(t0 + abscissa[i] * dt, z[i], slope[i]);      
+        }</pre>
+
+    </body>
 </html>
