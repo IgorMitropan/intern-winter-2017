@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1.1</title>
+</head>
+<body>
+
+<h2>Task 1.1 Условие</h2>
+<pre>В следующем фрагменте программы выполните оптимизацию:
+
+for i := 1 to bound do
+begin
+    for j := 1 to dim do
+    begin
+    s := 0.0;
+
+        for k := 0 to i - 1 do
+        begin
+         s := s + dt * weight[i, k] * slope[k, j];
+         z[i, j] := x0[j] + 2.314 * y;
+        end;
+    end;
+
+    F(t0 + abscissa[i] * dt, z[i], slope[i]);
+end;</pre>
+
+</body>
+</html>
