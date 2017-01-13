@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 3.1</title>
+    </head>
+    <body>
+
+        <h2>Task 3.1</h2>
+        <h3>Условие:</h3>
+        <pre>Имеется следующее описание:
+        var
+            a, b, c: set of Boolean;
+            c: Real;
+            w: Integer;
+            m, n: Boolean;
+
+Какие из этоих переменных совместимы по присваиванию?</pre>
+
+        <h3>Решение:</h3>
+        <pre>Поскольку в JavaScript при объявлении переменных не объявляется ее тип данных,
+то любые переменные совместимы по присвоению. 
+
+Например следующий snippet не приведет к ошибке:
+    let set = new Set();
+    set = 11.1;
+    set = 11;
+    set = true;</pre>
+
+    </body>
+</html>
