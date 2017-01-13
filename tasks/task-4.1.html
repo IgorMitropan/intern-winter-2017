@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 4.1</title>
+    </head>
+    <body>
+
+        <h2>Task 4.1</h2>
+        <h3>Условие:</h3>
+        <pre>Определите результат выполнения следующей программы:
+
+  program test4:
+  type
+     TwoByte = array[0..1] of Byte;
+  var
+    Bool : Boolean;
+    TwoBytePtr : ^TwoByte;
+    Wrd: String;
+  begin
+    Bool := True or False;
+    TwoBytePtr := @Bool;
+    Wrd := 'Hello!';
+    Write (Wrd[TwoBytePtr^[0] +1]);
+    ReadLn;
+  end.</pre>
+
+        <h3>Решение:</h3>
+        <pre>Указатели не используются в JavaScript;
+Резултатом работы программы будет вывод на экран символа 'e'
+
+program test4;
+  type
+     TwoByte = array[0..1] of Byte; // пользовательский тип описывает массив из 2-х элементов, каждый элемент целочисленного типа от 0 до 255
+  var
+    Bool : Boolean;
+    TwoBytePtr : ^TwoByte; 
+    Wrd: String;
+  begin
+    Bool := True or False; // true || false вернет true
+    TwoBytePtr := @Bool; // присваивается значение указателя на переменную Bool, 
+                        // при этом тип TwoByte позволяет трактовать эту переменную как массив из 2-х элементов.
+                        // 0-й элемент равен значению Bool после приведения типов (true как 1)
+    Wrd := 'Hello!'; 
+    Write (Wrd[TwoBytePtr^[0] +1]); // TwoBytePtr^[0] равен 1 (смотри комментарий выше); Wrd[2] - второй символ слова 'Hello!'
+    ReadLn;
+  end.
+
+        </pre>
+
+    </body>
+</html>
